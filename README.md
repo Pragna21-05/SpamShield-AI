@@ -7,7 +7,23 @@
 SpamShield AI is an end-to-end, fully functional cybersecurity prototype designed to detect, analyze, and explain spam, smishing, and phishing attacks across Email, SMS, and WhatsApp communications.
 
 ## 📌 Current Progress
+## Supabase Integration
 
+This project uses Supabase as the cloud database for storing phishing scan results.
+
+### Features
+- Stores scan history in Supabase
+- Saves risk score and detection results
+- Cloud-based persistence
+- Environment variable based configuration
+
+### Environment Variables
+
+Create a `.env` file:
+
+```env
+SUPABASE_URL=https://niiubykisopslkspihtg.supabase.co
+SUPABASE_KEY=sb_publishable_lo-sjzYT73X59uhXHMf8EA_8jQ3TjHb
 ### Completed
 - Initial web application prototype
 - Frontend interface
