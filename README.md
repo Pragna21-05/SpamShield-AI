@@ -2,7 +2,30 @@
 
 **SpamShield AI** is an end-to-end, fully functional cybersecurity prototype designed to detect, analyze, and explain spam, smishing, and phishing attacks across Email, SMS, and WhatsApp communications.
 
----
+# SpamShield AI — AI-Powered Spam & Phishing Detection Web Application
+
+SpamShield AI is an end-to-end, fully functional cybersecurity prototype designed to detect, analyze, and explain spam, smishing, and phishing attacks across Email, SMS, and WhatsApp communications.
+
+## 📌 Current Progress
+
+### Completed
+- Initial web application prototype
+- Frontend interface
+- Backend integration
+- Message scanning workflow
+- Risk analysis modules
+
+### In Progress
+- AI/ML model improvements
+- Detection accuracy testing
+- UI/UX improvements
+
+### Upcoming
+- Model evaluation
+- End-to-end testing
+- Deployment
+
+## 🚀 Key Architectural Modules
 
 ## 🚀 Key Architectural Modules
 
