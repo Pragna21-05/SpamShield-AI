@@ -34,6 +34,7 @@ from backend.storage import (
     update_settings,
     reset_database
 )
+from .supabase_client import supabase
 
 # Initialize database on startup
 init_db()
@@ -43,6 +44,20 @@ app = FastAPI(
     description="Next-Generation AI & Heuristic Powered Spam & Phishing Detection Platform",
     version="1.0.0"
 )
+@app.get("/test-supabase")
+def test_supabase():
+    response = (
+        supabase
+        .table("scan_history")
+        .select("*")
+        .limit(5)
+        .execute()
+    )
+
+    return {
+        "success": True,
+        "data": response.data
+    }
 
 # Enable CORS
 app.add_middleware(

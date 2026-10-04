@@ -13,7 +13,7 @@ import json
 import os
 import datetime
 from typing import List, Dict, Any, Optional
-
+from .supabase_client import supabase
 DB_PATH = os.path.join(os.path.dirname(__file__), "..", "spamshield.db")
 
 def get_db_connection() -> sqlite3.Connection:
@@ -366,6 +366,26 @@ def save_scan_result(scan_data: Dict[str, Any]) -> int:
 
     scan_id = cursor.lastrowid
     conn.commit()
+    try:
+        supabase.table("scan_history").insert({
+        "message_text": scan_data.get("message_text", ""),
+        "sender": scan_data.get("sender", "Unknown"),
+        "subject": scan_data.get("subject", "No Subject"),
+        "source": scan_data.get("source", "Email"),
+        "link_url": scan_data.get("link_url", ""),
+        "result": scan_data.get("result", "HAM"),
+        "risk_level": scan_data.get("risk_level", "Low"),
+        "risk_score": scan_data.get("risk_score", 0),
+        "confidence_pct": scan_data.get("confidence_pct", 0),
+        "model_used": scan_data.get("model_used", ""),
+        "detection_reasons": scan_data.get("detection_reasons", []),
+        "recommendations": scan_data.get("recommendations", []),
+        "matched_keywords": scan_data.get("matched_keywords", []),
+        "url_flags": scan_data.get("url_flags", [])
+    }).execute()
+
+    except Exception as e:
+        print("Supabase save failed:", e)
     conn.close()
     return scan_id
 
