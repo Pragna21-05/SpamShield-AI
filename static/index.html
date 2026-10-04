@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpamShield AI — AI-Powered Spam & Phishing Detection Platform</title>
+  <meta name="description" content="AI-Powered Spam Detection, Security Analytics, and Phishing Defense Platform combining machine learning and heuristic inspection.">
+  
+  <!-- Modern Typography from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+  <!-- Top Accent Tagline (Visual Theme Guideline 2) -->
+  <div class="top-accent-banner">
+    PROTECT. DETECT. SECURE. &bull; NEXT-GEN SPAMSHIELD AI THREAT DEFENSE SYSTEM
+  </div>
+
+  <!-- Top Application Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      
+      <!-- Brand & Status -->
+      <div class="brand-wrapper" onclick="switchTab('scan')">
+        <div class="brand-icon-shield">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            <polyline points="9 12 11 14 15 10"></polyline>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>SpamShield AI <span class="brand-tag">v1.0 ML</span></h1>
+          <div class="brand-subtitle">Autonomous Spam &amp; Phishing Defense Engine</div>
+        </div>
+      </div>
+
+      <!-- Center Navigation Tabs -->
+      <nav class="nav-tabs" aria-label="Main Navigation">
+        <button class="nav-tab-btn active" data-tab="scan" id="navTabScan">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          Scan Message
+        </button>
+        <button class="nav-tab-btn" data-tab="history" id="navTabHistory">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          Scan History
+        </button>
+        <button class="nav-tab-btn" data-tab="analytics" id="navTabAnalytics">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          Risk Analytics
+        </button>
+        <button class="nav-tab-btn" data-tab="safety" id="navTabSafety">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          Safety Hub
+        </button>
+        <button class="nav-tab-btn" data-tab="settings" id="navTabSettings">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          Settings
+        </button>
+      </nav>
+
+      <!-- Right User & Engine Indicator -->
+      <div class="nav-actions">
+        <div class="model-badge-pill" title="Active Model Pipeline">
+          <div class="pulse-dot"></div>
+          <span>Hybrid Ensemble</span>
+        </div>
+        <button class="user-profile-btn" onclick="openAuthModal()" title="Manage User Account">
+          <div class="user-avatar" id="userAvatarDisplay">SA</div>
+          <span id="userNameDisplay">Security Analyst</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main Viewports Container -->
+  <main class="main-wrapper">
+
+    <!-- ======================================================= -->
+    <!-- SECTION 1: SCAN MESSAGE                                  -->
+    <!-- ======================================================= -->
+    <section class="tab-section active" id="tab-scan">
+      <div class="section-header">
+        <div>
+          <!-- Main Headline accented with bright neon lime green -->
+          <h2 class="section-title">
+            AI-Powered <span class="highlight-lime">Spam &amp; Threat Detection</span>
+          </h2>
+          <p class="section-desc">Inspect multi-channel communications with TF-IDF vectorization, NLP preprocessing, and explainable machine learning.</p>
+        </div>
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <span class="badge-pill-outline">Live Detection</span>
+          <span class="badge-pill-outline">ML Analytics</span>
+          <span class="badge-pill-outline">Instant Alert</span>
+        </div>
+      </div>
+
+      <div class="scanner-grid">
+        
+        <!-- Left Column: Input Form & Presets -->
+        <div class="cyber-card">
+          
+          <!-- Window Control Dots Decoration (Visual Theme Guideline 1 & 4) -->
+          <div class="window-header-bar">
+            <div class="window-control-dots">
+              <span class="window-dot dot-blue"></span>
+              <span class="window-dot dot-yellow"></span>
+              <span class="window-dot dot-green"></span>
+            </div>
+            <span class="window-title-tag">MODULE: INPUT_SCANNER</span>
+          </div>
+
+          <!-- Source Selector Row -->
+          <div class="form-group">
+            <label class="form-label">Message Communication Channel</label>
+            <div class="source-selector-row">
+              <button type="button" class="source-chip active" data-source="Email">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                Email
+              </button>
+              <button type="button" class="source-chip" data-source="SMS">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                SMS
+              </button>
+              <button type="button" class="source-chip" data-source="WhatsApp">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                WhatsApp
+              </button>
+            </div>
+          </div>
+
+          <!-- Presets Quick Loader -->
+          <div class="preset-wrapper">
+            <div class="preset-title">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              Quick Test Presets
+            </div>
+            <div class="preset-chips-list">
+              <button type="button" class="preset-chip danger" data-preset="bank_phish">🚨 Chase Phishing</button>
+              <button type="button" class="preset-chip danger" data-preset="usps_smishing">📦 USPS Package SMS</button>
+              <button type="button" class="preset-chip danger" data-preset="whatsapp_job">💼 WhatsApp Job Scam</button>
+              <button type="button" class="preset-chip danger" data-preset="netflix_billing">🎬 Netflix Suspension</button>
+              <button type="button" class="preset-chip" data-preset="legit_sprint">📋 Sprint Retro (Ham)</button>
+              <button type="button" class="preset-chip" data-preset="legit_2fa">🔑 Google 2FA (Ham)</button>
+            </div>
+          </div>
+
+          <!-- Main Input Form -->
+          <form id="scannerForm">
+            
+            <div class="form-group">
+              <label class="form-label" for="scanSender">Sender Address / Phone Number</label>
+              <input type="text" id="scanSender" class="form-input" placeholder="e.g. security-alert@chase-verify.top">
+            </div>
+
+            <div class="form-group" id="subjectGroup">
+              <label class="form-label" for="scanSubject">Email Subject Line</label>
+              <input type="text" id="scanSubject" class="form-input" placeholder="e.g. URGENT: Unauthorized Wire Transfer Detected">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="scanUrl">Optional Embedded Link / Destination URL</label>
+              <input type="url" id="scanUrl" class="form-input" placeholder="e.g. http://192.168.1.1/login or http://bit.ly/deal">
+            </div>
+
+            <div class="form-group">
+              <div class="form-label">
+                <span>Message Body Content <span class="req">*</span></span>
+                <span class="char-counter" id="charCount">0 chars</span>
+              </div>
+              <textarea id="scanMessageText" class="form-textarea" required placeholder="Paste or type raw email, SMS, or WhatsApp message content here..."></textarea>
+            </div>
+
+            <!-- Solid Green Action Button (Visual Theme Guideline 3) -->
+            <div style="display: flex; gap: 0.75rem; margin-top: 1.25rem;">
+              <button type="submit" class="btn-solid-green" id="btnSubmitScan">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                Run Threat Analysis
+              </button>
+              
+              <!-- Border-Only Button (Visual Theme Guideline 3) -->
+              <button type="button" class="btn-border-lime" id="btnResetScanner" title="Clear inputs">
+                Clear Form
+              </button>
+            </div>
+
+            <!-- Animated Radar Box -->
+            <div class="scanning-indicator-box" id="scanningIndicatorBox">
+              <div class="radar-beam"></div>
+              <div style="font-weight: 700; font-size: 0.9rem; color: var(--neon-lime-bright);">Analyzing Vector &amp; Heuristic Profiles...</div>
+              <div style="font-size: 0.775rem; color: var(--text-muted); margin-top: 0.25rem;">Extracting TF-IDF features • Evaluating URL entropy • Computing ML models</div>
+            </div>
+
+          </form>
+
+        </div>
+
+        <!-- Right Column: Media / Preview Placeholder Box (Visual Theme Guideline 1 & 4) -->
+        <div class="preview-placeholder-box">
+          
+          <!-- Window Control Dots in Preview Box -->
+          <div class="window-header-bar">
+            <div class="window-control-dots">
+              <span class="window-dot dot-blue"></span>
+              <span class="window-dot dot-yellow"></span>
+              <span class="window-dot dot-green"></span>
+            </div>
+            <span class="window-title-tag">INSPECTOR: REALTIME_OUTPUT</span>
+          </div>
+          
+          <!-- Empty State (before first scan) -->
+          <div class="results-empty-state" id="resultsEmptyState">
+            <div class="results-empty-icon">
+              <!-- Sky Blue Interactive Trigger Circle (Visual Theme Guideline 4) -->
+              <div class="interactive-trigger-circle">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </div>
+            </div>
+            <h3>Engine Ready for Inspection</h3>
+            <p>Select a quick preset or submit a message to trigger preprocessing, ML inference, and risk explainability.</p>
+          </div>
+
+          <!-- Live Results Content -->
+          <div class="results-card-content" id="resultsContent">
+            
+            <!-- Verdict Hero Banner -->
+            <div class="verdict-hero-banner" id="verdictBanner">
+              <div class="verdict-main-info">
+                <div class="verdict-shield-icon" id="verdictShieldIcon"></div>
+                <div>
+                  <div class="verdict-headline" id="verdictHeadline">SPAM</div>
+                  <div class="verdict-substatus" id="verdictSubstatus">HIGH RISK THREAT</div>
+                </div>
+              </div>
+              
+              <!-- Circular SVG Gauge -->
+              <div class="gauge-metric-container">
+                <div class="circular-gauge-box">
+                  <svg width="72" height="72">
+                    <circle class="gauge-bg-circle" cx="36" cy="36" r="28"></circle>
+                    <circle class="gauge-val-circle" id="gaugeCircleVal" cx="36" cy="36" r="28"></circle>
+                  </svg>
+                  <div class="gauge-center-text" id="gaugeRiskScoreText">85%</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Engine Buttons -->
+            <div class="action-engine-bar">
+              <!-- Border-Only Button -->
+              <button class="btn-border-lime" onclick="copyScanSummary()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                Copy Summary
+              </button>
+              
+              <!-- Solid Blue Action Button -->
+              <button class="btn-solid-blue" onclick="reportCurrentScan('false_positive')">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
+                Report False Positive
+              </button>
+
+              <button class="btn-solid-blue" onclick="reportCurrentScan('missed_spam')">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                Report Missed Spam
+              </button>
+            </div>
+
+            <!-- In-Text Highlighted Annotations -->
+            <div class="form-label">
+              <span>Interactive In-Text Threat Annotations</span>
+            </div>
+            <div class="highlighted-text-box" id="highlightedTextViewer">
+              Message preview will render here with highlighted tokens...
+            </div>
+
+            <!-- Feature Counts Pill Grid -->
+            <div class="features-pills-grid">
+              <div class="feature-pill-card">
+                <div class="feature-pill-val" id="pillUrgencyCount">0</div>
+                <div class="feature-pill-lbl">Urgency Hits</div>
+              </div>
+              <div class="feature-pill-card">
+                <div class="feature-pill-val" id="pillCredCount">0</div>
+                <div class="feature-pill-lbl">Credential Flags</div>
+              </div>
+              <div class="feature-pill-card">
+                <div class="feature-pill-val" id="pillFinancialCount">0</div>
+                <div class="feature-pill-lbl">Financial Lures</div>
+              </div>
+              <div class="feature-pill-card">
+                <div class="feature-pill-val" id="pillConfidence">0%</div>
+                <div class="feature-pill-lbl">ML Confidence</div>
+              </div>
+            </div>
+
+            <!-- Explainability: Why Was It Detected? -->
+            <div class="explain-reasons-box">
+              <h4>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--warn-amber)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                Explainability: Why Was It Detected?
+              </h4>
+              <ul class="reasons-list" id="detectionReasonsList"></ul>
+            </div>
+
+            <!-- Actionable Recommendations -->
+            <div class="recommendations-box">
+              <h4>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--neon-lime-bright)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+                Actionable Defense Recommendations
+              </h4>
+              <div id="safetyRecommendationsList"></div>
+            </div>
+
+            <!-- Preprocessing Pipeline Transparency -->
+            <div class="pipeline-inspector-box">
+              <h4>
+                <span>Preprocessing Pipeline Transformation Stages</span>
+                <span style="font-size: 0.725rem; font-family: var(--font-mono); color: var(--neon-lime-bright);">5 Active Stages</span>
+              </h4>
+              <div class="pipeline-steps-flow" id="pipelineStepsContainer"></div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================= -->
+    <!-- SECTION 2: SCAN HISTORY                                  -->
+    <!-- ======================================================= -->
+    <section class="tab-section" id="tab-history">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">
+            Historical <span class="highlight-lime">Scan Registry</span>
+          </h2>
+          <p class="section-desc">Search, filter, and inspect past threat detection evaluations stored in the persistent database.</p>
+        </div>
+        <div style="display: flex; gap: 0.5rem;">
+          <!-- Solid Blue Action Buttons (Visual Theme Guideline 3) -->
+          <button class="btn-solid-blue" id="btnExportCsv">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Export CSV
+          </button>
+          <button class="btn-solid-blue" id="btnExportJson">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Export JSON
+          </button>
+        </div>
+      </div>
+
+      <!-- Controls & Filter Card with Window Dots -->
+      <div class="cyber-card history-controls-card">
+        <div class="history-search-group">
+          <svg class="search-icon-pos" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="historySearch" class="form-input history-search-input" placeholder="Search by text snippet, sender, or subject...">
+        </div>
+        
+        <div class="history-filters-row">
+          <select id="historyStatusFilter" class="history-filter-select">
+            <option value="ALL">All Verdicts</option>
+            <option value="SPAM">SPAM Only</option>
+            <option value="HAM">HAM Only</option>
+          </select>
+
+          <select id="historyRiskFilter" class="history-filter-select">
+            <option value="ALL">All Risk Levels</option>
+            <option value="High">High Risk</option>
+            <option value="Medium">Medium Risk</option>
+            <option value="Low">Low Risk</option>
+          </select>
+
+          <select id="historySourceFilter" class="history-filter-select">
+            <option value="ALL">All Channels</option>
+            <option value="Email">Email</option>
+            <option value="SMS">SMS</option>
+            <option value="WhatsApp">WhatsApp</option>
+          </select>
+
+          <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-dim);" id="historyRecordCount">Loading...</span>
+        </div>
+      </div>
+
+      <!-- History Table Container -->
+      <div class="history-table-wrapper">
+        <table class="history-table">
+          <thead>
+            <tr>
+              <th>Timestamp</th>
+              <th>Channel</th>
+              <th>Subject / Sender &amp; Snippet</th>
+              <th>Verdict</th>
+              <th>Risk Score</th>
+              <th>Confidence</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="historyTableBody">
+            <!-- Dynamically populated rows -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ======================================================= -->
+    <!-- SECTION 3: RISK ANALYTICS                                -->
+    <!-- ======================================================= -->
+    <section class="tab-section" id="tab-analytics">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">
+            Security <span class="highlight-lime">Risk Analytics</span>
+          </h2>
+          <p class="section-desc">Real-time aggregate threat telemetry, timeline trendlines, and vector distributions.</p>
+        </div>
+      </div>
+
+      <!-- Charts Section -->
+      <div class="charts-grid">
+        
+        <!-- Timeline Graph Card with Window Dots -->
+        <div class="chart-card">
+          <div class="window-header-bar">
+            <div class="window-control-dots">
+              <span class="window-dot dot-blue"></span>
+              <span class="window-dot dot-yellow"></span>
+              <span class="window-dot dot-green"></span>
+            </div>
+            <span class="window-title-tag">TELEMETRY: TIMELINE_GRAPH</span>
+          </div>
+          <div class="chart-header">
+            <div class="chart-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--neon-lime-bright)" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+              7-Day Threat Detection Activity Timeline
+            </div>
+            <div style="font-size: 0.75rem; color: var(--text-muted); display: flex; gap: 0.75rem;">
+              <span style="color: var(--alert-red);">● Spam Detections</span>
+              <span style="color: var(--neon-lime-bright);">● Safe Ham</span>
+            </div>
+          </div>
+          <div class="chart-canvas-box">
+            <canvas id="timelineChartCanvas"></canvas>
+          </div>
+        </div>
+
+        <!-- Risk Distribution Donut Card with Window Dots -->
+        <div class="chart-card">
+          <div class="window-header-bar">
+            <div class="window-control-dots">
+              <span class="window-dot dot-blue"></span>
+              <span class="window-dot dot-yellow"></span>
+              <span class="window-dot dot-green"></span>
+            </div>
+            <span class="window-title-tag">DISTRIBUTION: RISK_SEVERITY</span>
+          </div>
+          <div class="chart-header">
+            <div class="chart-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--warn-amber)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg>
+              Risk Severity Breakdown
+            </div>
+          </div>
+          <div class="chart-canvas-box" style="display: flex; align-items: center; justify-content: center;">
+            <canvas id="riskDonutCanvas"></canvas>
+          </div>
+          <div style="display: flex; justify-content: space-around; font-size: 0.75rem; margin-top: 0.5rem;">
+            <span style="color: var(--alert-red);">● High (&gt;=75%)</span>
+            <span style="color: var(--warn-amber);">● Med (40-74%)</span>
+            <span style="color: var(--neon-lime-bright);">● Low (&lt;40%)</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Secondary Analytics Breakdown -->
+      <div class="charts-grid">
+        
+        <!-- Threat Categories Bar -->
+        <div class="chart-card">
+          <div class="window-header-bar">
+            <div class="window-control-dots">
+              <span class="window-dot dot-blue"></span>
+              <span class="window-dot dot-yellow"></span>
+              <span class="window-dot dot-green"></span>
+            </div>
+            <span class="window-title-tag">FREQUENCY: VECTOR_BREAKDOWN</span>
+          </div>
+          <div class="chart-header">
+            <div class="chart-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--sky-blue-bright)" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+              Threat Attack Vector Frequency
+            </div>
+          </div>
+          <div id="threatCategoriesBarContainer" style="padding-top: 0.5rem;"></div>
+        </div>
+
+        <!-- Channel Sources & Top Keywords -->
+        <div class="chart-card">
+          <div class="window-header-bar">
+            <div class="window-control-dots">
+              <span class="window-dot dot-blue"></span>
+              <span class="window-dot dot-yellow"></span>
+              <span class="window-dot dot-green"></span>
+            </div>
+            <span class="window-title-tag">CHANNELS: KEYWORDS</span>
+          </div>
+          <div class="chart-header">
+            <div class="chart-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--sky-blue-bright)" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+              Channels &amp; Top Trigger Terms
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.65rem; margin-bottom: 1.25rem;" id="sourceChannelsContainer"></div>
+          
+          <div style="font-size: 0.775rem; text-transform: uppercase; font-weight: 700; color: var(--text-dim); margin-bottom: 0.5rem;">
+            Most Frequent Spam Trigger Keywords
+          </div>
+          <div id="topKeywordsContainer" style="display: flex; flex-wrap: wrap; gap: 0.4rem;"></div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ======================================================= -->
+    <!-- SECTION 4: SAFETY HUB                                    -->
+    <!-- ======================================================= -->
+    <section class="tab-section" id="tab-safety">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">
+            Cybersecurity <span class="highlight-lime">Safety Hub &amp; Playbooks</span>
+          </h2>
+          <p class="section-desc">Comprehensive reference guidelines, incident response checklists, and interactive phishing simulation.</p>
+        </div>
+      </div>
+
+      <div class="safety-hub-grid">
+        
+        <!-- Left: Educational Playbooks -->
+        <div>
+          
+          <!-- Module 1: Phishing Awareness -->
+          <div class="safety-module-item">
+            <div class="safety-module-header">
+              <div class="safety-module-icon">🎣</div>
+              <div>
+                <div class="safety-module-title">1. Phishing &amp; Social Engineering Red Flags</div>
+                <div style="font-size: 0.75rem; color: var(--text-dim);">Cognitive bias manipulation &amp; urgency triggers</div>
+              </div>
+            </div>
+            <div class="safety-module-desc">
+              Phishing adversaries exploit emotional panic (account suspension, legal subpoenas, unpaid fines) or greed (lottery prizes, crypto airdrops) to force rapid, uncritical clicks.
+            </div>
+            <ul class="safety-checklist">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Artificial urgency deadlines ("within 2 hours", "immediate response required") are primary signals of malicious intent.</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Generic greetings ("Dear valued customer") instead of your registered legal name.</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Demands to settle unexpected fines via gift cards, wire transfers, or cryptocurrency.</li>
+            </ul>
+          </div>
+
+          <!-- Module 2: Email Best Practices -->
+          <div class="safety-module-item">
+            <div class="safety-module-header">
+              <div class="safety-module-icon">✉️</div>
+              <div>
+                <div class="safety-module-title">2. Safe Email Practices &amp; Header Verification</div>
+                <div style="font-size: 0.75rem; color: var(--text-dim);">Detecting domain spoofing and lookalike characters</div>
+              </div>
+            </div>
+            <div class="safety-module-desc">
+              Always verify the technical email address behind the display name. Attackers configure display names like "PayPal Support" from disposable lookalike addresses.
+            </div>
+            <ul class="safety-checklist">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Check the exact domain: <code>support@paypal.com</code> is genuine; <code>support@paypa1-update.xyz</code> is fraudulent.</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Be vigilant for homoglyphs (e.g. Cyrillic 'a' or numeral '1' substituted for latin characters).</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Verify SPF, DKIM, and DMARC alignment status in email headers.</li>
+            </ul>
+          </div>
+
+          <!-- Module 3: URL & Link Safety -->
+          <div class="safety-module-item">
+            <div class="safety-module-header">
+              <div class="safety-module-icon">🔗</div>
+              <div>
+                <div class="safety-module-title">3. Suspicious Links, Shorteners &amp; Masked Destinations</div>
+                <div style="font-size: 0.75rem; color: var(--text-dim);">How attackers bypass domain reputation checks</div>
+              </div>
+            </div>
+            <div class="safety-module-desc">
+              Links in SMS (smishing) and messaging apps frequently utilize URL shorteners (bit.ly, tinyurl) or raw IP addresses to obscure hostile landing sites.
+            </div>
+            <ul class="safety-checklist">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Never click bare IP URLs (e.g., <code>http://192.168.1.1/...</code>) sent in unexpected messages.</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Expand shortened URLs using link inspection tools before navigating.</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Look for suspicious top-level domains (.xyz, .top, .buzz, .click, .loan).</li>
+            </ul>
+          </div>
+
+          <!-- Module 4: OTP & Credential Protection -->
+          <div class="safety-module-item">
+            <div class="safety-module-header">
+              <div class="safety-module-icon">🛡️</div>
+              <div>
+                <div class="safety-module-title">4. OTP &amp; Multi-Factor Authentication Defense</div>
+                <div style="font-size: 0.75rem; color: var(--text-dim);">Preventing session hijacking and 2FA bypass</div>
+              </div>
+            </div>
+            <div class="safety-module-desc">
+              One-Time Passwords (OTPs) are the final barrier preventing unauthorized account takeovers. Official institutions will NEVER ask for your OTP over phone, chat, or email.
+            </div>
+            <ul class="safety-checklist">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> If you receive an unsolicited OTP, your password may already be compromised. Change it immediately.</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Beware of "MFA Fatigue" attacks where attackers trigger dozens of push approval alerts.</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Prefer hardware FIDO2 security keys (YubiKey) or authenticator apps over SMS 2FA.</li>
+            </ul>
+          </div>
+
+          <!-- Module 5: Incident Recovery -->
+          <div class="safety-module-item">
+            <div class="safety-module-header">
+              <div class="safety-module-icon">🚨</div>
+              <div>
+                <div class="safety-module-title">5. Incident Recovery Protocol (If You Clicked)</div>
+                <div style="font-size: 0.75rem; color: var(--text-dim);">Immediate remediation steps after accidental exposure</div>
+              </div>
+            </div>
+            <div class="safety-module-desc">
+              Time is critical if you have clicked a suspicious link or entered credentials on a deceptive portal. Follow this structured protocol:
+            </div>
+            <ul class="safety-checklist">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Step 1:</strong> Reset account passwords immediately from a separate, trusted device.</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Step 2:</strong> Terminate all active browser sessions &amp; revoked authorized tokens.</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Step 3:</strong> Alert your bank / credit card company if financial data was disclosed.</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Step 4:</strong> Run an offline antivirus/EDR scan for dropped malware or keyloggers.</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Right: Interactive Threat Simulator -->
+        <div>
+          <div class="threat-simulator-card">
+            <div class="window-header-bar">
+              <div class="window-control-dots">
+                <span class="window-dot dot-blue"></span>
+                <span class="window-dot dot-yellow"></span>
+                <span class="window-dot dot-green"></span>
+              </div>
+              <span class="window-title-tag">SIMULATOR: ACTIVE_TEST</span>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <span class="badge-pill-outline" id="simCounterBadge">Scenario 1 of 3</span>
+              <span style="font-size: 0.75rem; color: var(--yellow-green-tag); font-family: var(--font-mono); font-weight: 700;">LIVE EXERCISE</span>
+            </div>
+
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: #FFFFFF;">Test Your Phishing Detection Instincts</h3>
+            <p style="font-size: 0.85rem; color: var(--text-sub); margin-top: 0.25rem;">
+              Inspect real-world attack simulations and determine whether the message is a deceptive scam or authentic ham.
+            </p>
+
+            <!-- Simulated Envelope -->
+            <div class="sim-message-envelope">
+              <div class="sim-header-row">
+                <div><strong>Channel:</strong> <span id="simSource">Email</span></div>
+                <div><strong>From:</strong> <span id="simSender">security@amzn-verify.xyz</span></div>
+                <div><strong>Subject:</strong> <span id="simSubject">URGENT: Order #492-9182 Locked</span></div>
+              </div>
+              <div id="simBody" style="color: #E2E8F0;">
+                Message body...
+              </div>
+            </div>
+
+            <!-- Choice Buttons -->
+            <div class="sim-choice-buttons">
+              <button class="btn-solid-green" style="background: var(--alert-red); color: #FFFFFF;" onclick="answerSimulator(true)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                Flag as Spam
+              </button>
+              <button class="btn-solid-green" onclick="answerSimulator(false)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Mark as Safe Ham
+              </button>
+            </div>
+
+            <!-- Feedback Alert -->
+            <div class="sim-feedback-box" id="simFeedback"></div>
+
+            <div style="margin-top: 1rem; text-align: right;">
+              <button class="btn-border-lime" id="btnNextSim" style="display: none;">
+                Next Scenario →
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================= -->
+    <!-- SECTION 5: SETTINGS                                      -->
+    <!-- ======================================================= -->
+    <section class="tab-section" id="tab-settings">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">
+            System <span class="highlight-lime">Tuning &amp; Preferences</span>
+          </h2>
+          <p class="section-desc">Adjust ML inference engines, threat sensitivity thresholds, and custom organizational keywords.</p>
+        </div>
+      </div>
+
+      <div class="settings-grid">
+        
+        <!-- Left: Sliders and Model Selection -->
+        <div class="cyber-card">
+          <div class="window-header-bar">
+            <div class="window-control-dots">
+              <span class="window-dot dot-blue"></span>
+              <span class="window-dot dot-yellow"></span>
+              <span class="window-dot dot-green"></span>
+            </div>
+            <span class="window-title-tag">CONFIG: ENGINE_TUNING</span>
+          </div>
+
+          <h3 style="font-size: 1.1rem; font-weight: 700; color: #FFFFFF; margin-bottom: 1.25rem;">
+            Classification Sensitivity &amp; Engine Tuning
+          </h3>
+
+          <!-- Model Engine Selection -->
+          <div class="form-group">
+            <label class="form-label" for="settingActiveModel">Active Machine Learning Engine</label>
+            <select id="settingActiveModel" class="form-select">
+              <option value="ensemble">Hybrid Ensemble (Naive Bayes + Logistic Regression)</option>
+              <option value="naive_bayes">Multinomial Naive Bayes (Laplace Smoothed)</option>
+              <option value="logistic_regression">Regularized Logistic Regression (L2)</option>
+            </select>
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.35rem;">
+              Ensemble combines generative prior-likelihood and discriminative log-odds weights.
+            </div>
+          </div>
+
+          <!-- High Risk Slider -->
+          <div class="slider-group">
+            <div class="slider-label-row">
+              <span>High Risk Alert Threshold</span>
+              <span class="slider-val-tag" id="valThresholdHigh">75%</span>
+            </div>
+            <input type="range" id="sliderThresholdHigh" class="range-slider" min="50" max="95" value="75">
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">
+              Scores at or above this threshold trigger Critical Spam / Phishing status and red alerts.
+            </div>
+          </div>
+
+          <!-- Medium Risk Slider -->
+          <div class="slider-group">
+            <div class="slider-label-row">
+              <span>Medium Risk Warning Threshold</span>
+              <span class="slider-val-tag" id="valThresholdMed">40%</span>
+            </div>
+            <input type="range" id="sliderThresholdMed" class="range-slider" min="15" max="60" value="40">
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">
+              Scores between this and the High threshold trigger Suspicious / Caution flags.
+            </div>
+          </div>
+
+          <div style="margin-top: 1.5rem;">
+            <!-- Solid Blue Action Button (Visual Theme Guideline 3) -->
+            <button class="btn-solid-blue" id="btnSaveSettings" style="width: auto;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+              Save Configuration
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Right: Custom Blacklists and Diagnostics -->
+        <div class="cyber-card">
+          <div class="window-header-bar">
+            <div class="window-control-dots">
+              <span class="window-dot dot-blue"></span>
+              <span class="window-dot dot-yellow"></span>
+              <span class="window-dot dot-green"></span>
+            </div>
+            <span class="window-title-tag">POLICIES: CUSTOM_RULES</span>
+          </div>
+
+          <h3 style="font-size: 1.1rem; font-weight: 700; color: #FFFFFF; margin-bottom: 1.25rem;">
+            Custom Keyword Rules &amp; Data Administration
+          </h3>
+
+          <!-- Custom Blacklist -->
+          <div class="form-group">
+            <label class="form-label">Custom Threat Blacklist Keywords</label>
+            <div class="keyword-tags-box" id="blacklistTagsBox"></div>
+            <div style="display: flex; gap: 0.5rem;">
+              <input type="text" id="inputAddBlacklist" class="form-input" placeholder="Add custom threat term (e.g. urgent wire)...">
+              <button class="btn-border-lime" onclick="addKeywordTag('blacklist')">Add</button>
+            </div>
+          </div>
+
+          <!-- Custom Whitelist -->
+          <div class="form-group" style="margin-top: 1.25rem;">
+            <label class="form-label">Custom Trusted Whitelist Keywords</label>
+            <div class="keyword-tags-box" id="whitelistTagsBox"></div>
+            <div style="display: flex; gap: 0.5rem;">
+              <input type="text" id="inputAddWhitelist" class="form-input" placeholder="Add trusted term (e.g. quarterly retro)...">
+              <button class="btn-border-lime" onclick="addKeywordTag('whitelist')">Add</button>
+            </div>
+          </div>
+
+          <!-- Reseed Database -->
+          <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border-subtle);">
+            <div style="font-size: 0.825rem; font-weight: 600; color: var(--text-main); margin-bottom: 0.35rem;">Database Maintenance</div>
+            <div style="font-size: 0.775rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+              Reset history registry and reseed realistic baseline telemetry for analytics demonstration.
+            </div>
+            <button class="btn-border-lime" id="btnResetDatabase" style="border-color: var(--alert-red); color: #FCA5A5;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+              Reseed Baseline Analytics
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================= -->
+  <!-- FLOATING CAPSULE CONTAINER (Visual Theme Guideline 1 & 8) -->
+  <!-- ======================================================= -->
+  <div class="floating-capsule-container" id="floatingCapsuleContainer">
+    
+    <div class="capsule-metric-item">
+      <div class="capsule-metric-icon" style="background: rgba(2, 132, 199, 0.25); color: var(--sky-blue-bright);">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+      </div>
+      <div class="capsule-metric-info">
+        <span class="capsule-metric-val" id="capsuleTotalScans">-</span>
+        <span class="capsule-metric-label">Total Scans</span>
+      </div>
+    </div>
+
+    <div class="capsule-divider"></div>
+
+    <div class="capsule-metric-item">
+      <div class="capsule-metric-icon" style="background: rgba(239, 68, 68, 0.2); color: var(--alert-red);">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+      </div>
+      <div class="capsule-metric-info">
+        <span class="capsule-metric-val" id="capsuleSpamPct" style="color: var(--alert-red);">-</span>
+        <span class="capsule-metric-label">Spam Rate</span>
+      </div>
+    </div>
+
+    <div class="capsule-divider"></div>
+
+    <div class="capsule-metric-item">
+      <div class="capsule-metric-icon" style="background: rgba(34, 197, 94, 0.2); color: var(--neon-lime-bright);">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+      </div>
+      <div class="capsule-metric-info">
+        <span class="capsule-metric-val" id="capsuleHamPct" style="color: var(--neon-lime-bright);">-</span>
+        <span class="capsule-metric-label">Clean Ham</span>
+      </div>
+    </div>
+
+    <div class="capsule-divider"></div>
+
+    <div class="capsule-metric-item">
+      <div class="capsule-metric-icon" style="background: rgba(245, 158, 11, 0.2); color: var(--warn-amber);">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+      </div>
+      <div class="capsule-metric-info">
+        <span class="capsule-metric-val" id="capsuleHighRisk">-</span>
+        <span class="capsule-metric-label">High Risk</span>
+      </div>
+    </div>
+
+    <div class="capsule-divider"></div>
+
+    <div class="capsule-metric-item">
+      <div class="capsule-metric-icon" style="background: rgba(56, 189, 248, 0.2); color: var(--sky-blue-bright);">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+      </div>
+      <div class="capsule-metric-info">
+        <span class="capsule-metric-val" id="capsuleConfidence">-</span>
+        <span class="capsule-metric-label">Confidence</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Deep Inspect Modal -->
+  <div class="modal-overlay" id="inspectModal">
+    <div class="modal-box">
+      <div class="window-header-bar">
+        <div class="window-control-dots">
+          <span class="window-dot dot-blue"></span>
+          <span class="window-dot dot-yellow"></span>
+          <span class="window-dot dot-green"></span>
+        </div>
+        <span class="window-title-tag">INSPECT_MODAL</span>
+      </div>
+      <button class="modal-close-btn" onclick="closeInspectModal()">✕</button>
+      <h3 style="font-size: 1.2rem; font-weight: 700; color: #FFFFFF; margin-bottom: 1.25rem;">
+        Detailed Threat Inspection
+      </h3>
+      <div id="inspectModalContent"></div>
+    </div>
+  </div>
+
+  <!-- User Auth Modal -->
+  <div class="modal-overlay" id="authModal">
+    <div class="modal-box" style="max-width: 440px;">
+      <div class="window-header-bar">
+        <div class="window-control-dots">
+          <span class="window-dot dot-blue"></span>
+          <span class="window-dot dot-yellow"></span>
+          <span class="window-dot dot-green"></span>
+        </div>
+        <span class="window-title-tag">AUTH_SESSION</span>
+      </div>
+      <button class="modal-close-btn" onclick="closeAuthModal()">✕</button>
+      <div style="text-align: center; margin-bottom: 1.25rem;">
+        <div class="brand-icon-shield" style="margin: 0 auto 0.75rem auto; width: 48px; height: 48px;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        </div>
+        <h3 style="font-size: 1.25rem; font-weight: 700; color: #FFFFFF;">Analyst Authentication</h3>
+        <p style="font-size: 0.8rem; color: var(--text-muted);">Sign in to access personalized threat telemetry and rule overrides</p>
+      </div>
+
+      <form onsubmit="handleLogin(event)">
+        <div class="form-group">
+          <label class="form-label" for="loginUsername">Username / Security ID</label>
+          <input type="text" id="loginUsername" class="form-input" value="alex_sec_lead" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="loginPassword">Passcode</label>
+          <input type="password" id="loginPassword" class="form-input" value="••••••••••••" required>
+        </div>
+        <button type="submit" class="btn-solid-green" style="width: 100%; margin-top: 1rem;">
+          Authenticate Session
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notifications Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Application Footer -->
+  <footer class="app-footer">
+    <div class="footer-content">
+      <div>SpamShield AI &copy; 2026. Dark Blue / Charcoal Architecture with Neon Lime &amp; Sky Blue Accents.</div>
+      <div class="footer-links">
+        <a href="#tab-scan" onclick="switchTab('scan')">Scanner</a>
+        <a href="#tab-history" onclick="switchTab('history')">History Registry</a>
+        <a href="#tab-analytics" onclick="switchTab('analytics')">Risk Telemetry</a>
+        <a href="#tab-safety" onclick="switchTab('safety')">Safety Playbooks</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
