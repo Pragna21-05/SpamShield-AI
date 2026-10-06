@@ -15,6 +15,7 @@ import datetime
 from typing import List, Dict, Any, Optional
 from .supabase_client import supabase
 DB_PATH = os.path.join(os.path.dirname(__file__), "..", "spamshield.db")
+if os.environ.get("VERCEL"): DB_PATH = "/tmp/spamshield.db"
 
 def get_db_connection() -> sqlite3.Connection:
     conn = sqlite3.connect(DB_PATH)
