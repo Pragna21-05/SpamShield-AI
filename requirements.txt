@@ -1,7 +1,16 @@
-fastapi
-uvicorn[standard]
-pydantic
-python-dotenv
-supabase
-numpy
-scikit-learn
+[project]
+name = "spamshield-ai"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+  "fastapi",
+  "uvicorn[standard]",
+  "pydantic",
+  "python-dotenv",
+  "supabase",
+  "numpy",
+  "scikit-learn",
+]
+
+[tool.vercel]
+entrypoint = "backend.app:app"
