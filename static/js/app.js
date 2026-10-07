@@ -76,6 +76,12 @@ document.addEventListener('DOMContentLoaded', () => {
   initSettingsControls();
   initSimulator();
   loadInitialData();
+
+  window.addEventListener('resize', debounce(() => {
+    if (state.currentTab === 'analytics' && state.analytics) {
+      renderCharts(state.analytics);
+    }
+  }, 200));
 });
 
 // -------------------------------------------------------------
